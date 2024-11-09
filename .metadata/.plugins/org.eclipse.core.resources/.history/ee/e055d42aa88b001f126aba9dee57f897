@@ -1,0 +1,33 @@
+class Employee{
+	int employeeId;
+	String employeeName;
+	
+	public Employee(int employeeId, String employeeName) {
+		super();
+		this.employeeId = employeeId;
+		this.employeeName = employeeName;
+	}
+
+	@Override
+	public String toString() {
+		return "Employee [employeeId=" + employeeId + ", employeeName=" + employeeName + "]";
+	}
+	
+	public void finalize() {
+		System.out.println("finalize()");
+	}
+	
+}
+public class FinalizeMethodDemo {
+	public static void main(String[] args) {
+		Employee e1 =new Employee(1001, "Sai");
+		Employee e2 =new Employee(1002, "Ram");
+		
+		System.out.println(e1);
+		System.out.println(e2);
+		
+		// Request JVM to call Garbage collector 
+		System.gc();
+	}
+
+}
